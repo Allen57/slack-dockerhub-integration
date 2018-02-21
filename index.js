@@ -33,7 +33,7 @@ server.route({
   path: '/services/{id*}',
   handler: (req, reply) => {
     const params = {
-      text: `[<${req.payload.repository.repo_url}|${req.payload.repository.repo_name}>] new image build complete`,
+        text: `[<${req.payload.repository.repo_url}/tags/${req.payload.push_data.tag}|${req.payload.repository.repo_name}:${req.payload.push_data.tag}>] new image build complete`,
       username: 'DockerHub',
       icon_url: 'https://hooks-slack-dockerhub.herokuapp.com/docker-logo.png'
     };
